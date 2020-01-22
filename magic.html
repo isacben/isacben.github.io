@@ -66,7 +66,7 @@
 		
 	    document.getElementById("magic_link").innerHTML = encodeURI(magicLink); 
 		document.getElementById("amount").value = am; 
-		document.getElementById("preview").href = encodeURI(magicLink); 
+		document.getElementById("preview").href = encodeURI(magicLink).replace(/amp;/g, ''); 
 	  }
 
       function copyToClipboard(containerid){
