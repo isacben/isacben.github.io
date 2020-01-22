@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Magic Link Generator</title>
+  </head>
+  <body>
+    
+	<div class="container-md">
+	  <div class="row mt-4">
+	    <h2 >Magic Link Generator</h2>
+	  </div>
+	  
+	  <div class="row mt-4">
+	  <form>
+	    <div class="form-group">
+	      <label for="salesOrder">Sales Order</label>
+		  <input type="text" id="so" class="form-control" onInput="updateMagicLink()"> 
+		</div>
+		<div class="form-group">
+		  <label for="amount">Amount</label>
+		  <input type="text" id="amount" class="form-control" onInput="updateMagicLink()">
+		</div>
+	  </form>
+	    
+	  </div>
+	  
+	  <div class="row">
+	    <p>Your link:</p>
+	  </div>
+	  
+	  <div class="row p-3 alert alert-primary" role="alert">
+	    <div id="magic_link">Type something first!</div>
+	  </div>
+	  
+	  <div class="row">
+	    <button type="button" class="btn btn-primary mr-1" onclick="copyToClipboard('magic_link')">Copy to Clipboard</button>
+		<a id="preview" href="#" class="btn btn-secondary active" role="button" aria-pressed="true" target="_blank">Preview</a>
+	  </div>
+	  
+    </div>
+	
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	
+	<script>
+	  function updateMagicLink(event){
+	    const so = document.getElementById("so");
+		const amount = document.getElementById("amount");
+		const am = amount.value.replace(/,/g, '');
+		
+        var magicLink = ['https://www.odoo.com/website_payment/pay?reference=', 
+		  so.value, 
+		  '&amount=', 
+		  am, 
+		  '&amp;currency_id=2&acquirer_id=28'].join('');
+		
+	    document.getElementById("magic_link").innerHTML = encodeURI(magicLink); 
+		document.getElementById("amount").value = am; 
+		document.getElementById("preview").href = encodeURI(magicLink); 
+	  }
+
+      function copyToClipboard(containerid){
+        var range = document.createRange();
+        range.selectNode(document.getElementById(containerid));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        //window.getSelection().removeAllRanges();
+      }
+	  
+    </script>
+
+  </body>
+</html>
