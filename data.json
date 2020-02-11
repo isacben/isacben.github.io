@@ -1,9 +1,6 @@
-{
-    "name":"John",
-    "age":31,
-    "pets":[
-        { "animal":"dog", "name":"Fido" },
-        { "animal":"cat", "name":"Felix" },
-        { "animal":"hamster", "name":"Lightning" }
-    ]
-}
+[
+  {
+    "customer" : "Cliente 1",
+    "contact" : "nhomar"
+  }
+]
