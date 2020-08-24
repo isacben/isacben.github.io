@@ -82,15 +82,20 @@ function startTimer() {
 
 function resetTimer() {
     clearInterval(timerInterval);
+
     TIME_LIMIT = 0;
     timePassed = 0;
     timeLeft = TIME_LIMIT;
+    
     setCircleDasharray();
     document.getElementById("base-timer-label").innerHTML = formatTime(
         timeLeft
     );
+    
     enableButtons(false);
     prepareVideo();
+
+    setRemainingPathColor(timeLeft);
 }
 
 function addToTimer(amount) {
