@@ -194,7 +194,6 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
   event.target.stopVideo();
-  player.setPlaybackRate(0.95); // 4x speed
   //prepareVideo();
 }
 
@@ -208,5 +207,6 @@ function onPlayerStateChange(event) {
 
 function prepareVideo() {
     player.seekTo(videoStart);
+    player.setPlaybackRate(0.95);
     player.pauseVideo();
 }
