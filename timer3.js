@@ -1,7 +1,7 @@
 
 var player;
 var videoStart = 1;
-let vidId = "aLDIgvPlYP8";
+let vidId = "QyVbtGttYQw";
 
 const FULL_DASH_ARRAY = 283;
 let WARNING_THRESHOLD = 0;
