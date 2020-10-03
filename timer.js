@@ -5,7 +5,7 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
  
 let videoId = urlParams.get('v');
-let videoStart = urlParams.get('start');
+let videoStart = urlParams.get('t');
 
 if (videoStart === null) {
   videoStart = 0;
