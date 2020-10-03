@@ -1,15 +1,7 @@
 
-var player = null;
-
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
- 
-let videoId = urlParams.get('v');
-let videoStart = urlParams.get('start');
-
-if (videoStart === null) {
-  videoStart = 0;
-}
+var player;
+var videoStart = 204;
+let vidId = "vlBidpc0-Hg";
 
 const FULL_DASH_ARRAY = 283;
 let WARNING_THRESHOLD = 0;
@@ -59,12 +51,13 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
+//startTimer();
+
 function onTimesUp() {
     resetTimer();
-    if (player !== null) {
-      if (player.getPlayerState() != 1)
-          player.playVideo();
-    }
+    
+    if (player.getPlayerState() != 1)
+        player.playVideo();
 }
 
 function startTimer() {
@@ -176,7 +169,7 @@ function setCircleDasharray() {
 }
 
 
-// youtube api requests
+// Youtube
 
 var tag = document.createElement('script');
 
@@ -186,37 +179,33 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
 function onYouTubeIframeAPIReady() {
-  if (videoId !== null) {
-    player = new YT.Player('player', {
-      height: '180',
-      width: '320',
-      videoId: videoId,
-      playerVars: { autoplay: 0, start: videoStart},
-      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
-      }
-    });
-  }
+  player = new YT.Player('player', {
+    height: '180',
+    width: '320',
+    videoId: vidId,
+    playerVars: { autoplay: 0, start: videoStart},
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+  
 }
 
 function onPlayerReady(event) {
   event.target.stopVideo();
-  document.getElementById("videoTitle").innerText = player.getVideoData().title;
   //prepareVideo();
 }
 
 var done = false;
 function onPlayerStateChange(event) {
-  //if (event.data == YT.PlayerState.PLAYING && !done) {
-  //  setTimeout(stopVideo, 59000);
-  //  done = true;
-  //}
+  /*if (event.data == YT.PlayerState.PLAYING && !done) {
+    setTimeout(stopVideo, 59000);
+    done = true;
+  }*/
 }
 
 function prepareVideo() {
-  if (player !== null) {
     player.seekTo(videoStart);
     player.pauseVideo();
-  }
 }
