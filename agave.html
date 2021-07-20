@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="img/agave.png" type="image/png" sizes="16x16">
+    <title>agave</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify-css.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify-html.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+                font-family: 'Space Mono', monospace;
+            }
+        h1,h2,h3,h4,h5,h6 {
+            font-family: 'Space Mono', monospace;
+        }
+        p {
+            font-family: 'Space Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <img class="d-inline-block align-text-top" src="img/agave.png" width="28" height="28">
+                {"agave": <span class="text-muted">"pretty print kibana logs."</span>}
+            </a>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col" style="overflow-x: auto;">
+                <form action="">
+                    <div class="input-group mb-3">
+                        <textarea class="form-control" name="" id="theString" rows="4" style="font-size: 11pt"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <input class="btn btn-outline-dark me-1" type="submit" name="" id="" onclick="prettyPrint();" value="pretty print">
+                        <input class="btn btn-light" type="submit" name="" id="" onclick="clean();" value="clean">
+                    </div>
+                </form>
+
+                <div class="mt-4 border-start border-3 px-2">
+                    <pre id="output"></pre>
+                </div>
+            </div>
+
+            <div class="col">
+                <form action="">
+                    <div class="input-group mb-3">
+                        <textarea class="form-control" name="" id="jsonString" rows="4" style="font-size: 11pt"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <input class="btn btn-outline-dark me-1" type="submit" name="" id="" onclick="jsonPrint();" value="json print">
+                        <input class="btn btn-light" type="submit" name="" id="" onclick="jsonClean();" value="clean">
+                    </div>
+                </form>
+
+                <div class="mt-4 border-start border-3 px-2">
+                    <pre id="json_output"></pre>
+                </div>
+            </div>
+
+            <div>
+                <p class="text-center">agave, a tool for rapyd. isaac benitez. 2021.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    function clean(){
+        event.preventDefault();
+        document.getElementById('theString').value = "";
+        document.getElementById('output').innerHTML = "";
+    }
+
+    function jsonClean(){
+        event.preventDefault();
+        document.getElementById('jsonString').value = "";
+        document.getElementById('json_output').innerHTML = "";
+    }
+
+    function prettyPrint() {
+
+        event.preventDefault();
+    
+        let inputStr = document.getElementById('theString').value;
+
+        // https://github.com/beautify-web/js-beautify
+        var beautify = window.js_beautify;
+        document.getElementById('output').innerHTML = beautify(inputStr, { indent_size: 2, space_in_empty_paren: true });
+    }
+
+    function jsonPrint(){
+        event.preventDefault();
+    
+        let inputStr = document.getElementById('jsonString').value;
+        
+        // relace single quotes with double quotes
+        let doubleStr = inputStr.replaceAll('\'', '\"');
+
+        // remove quotes for arrays
+        let arrStr = doubleStr.replaceAll('\"\[', '\[');
+        arrStr = arrStr.replaceAll('\]\"', '\]');
+
+        const regex1 = /([{,]\s*)([^"':}]+)(\s*:)/g;
+        const subst1 = `$1"$2"$3`;
+
+        let quotesAddedStr = arrStr.replace(regex1, subst1);
+        let result1 = quotesAddedStr.replaceAll('{"}', '{}');
+        console.log(result1);
+        
+        try {
+            let jsonObj = JSON.parse(String(result1));
+            document.getElementById('json_output').innerHTML = JSON.stringify(jsonObj, null, 2);
+        } catch(e) {
+            document.getElementById('json_output').innerHTML = e;
+        }
+        
+    }
+
+</script>
+</html>
+
