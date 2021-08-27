@@ -66,6 +66,10 @@
             padding: 20px;
             border: 0 !important;
         }
+        .hidden_textarea {
+            position: absolute;
+            left: -100%;
+        }
     </style>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -102,6 +106,7 @@
 
                 <div class="mt-4 border-start border-3 px-2" id="output-div">
                     <div class="float-end">
+                        <a onclick="clipboard()" class="btn btn-outline-dark"><i id="i-clipboard" class="bi bi-clipboard"></i> copy</a>
                         <a onclick="expand()" class="btn btn-outline-dark"><i id="i-expand" class="bi bi-arrows-angle-expand"></i></a>
                     </div>
                     <pre id="output"></pre>
@@ -139,6 +144,17 @@
 </body>
 
 <script>
+
+    function clipboard(){
+        const copyText = document.getElementById("output").textContent;
+        const textArea = document.createElement('textarea');
+        textArea.textContent = copyText;
+        document.body.append(textArea);
+        textArea.className = "hidden_textarea";
+        textArea.select();
+        document.execCommand("copy");
+        textArea.remove();
+    }
 
     function expand(){
         if(document.getElementById("output-div").classList.contains("full_screen")){
