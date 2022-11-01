@@ -22,7 +22,7 @@ export default class Entity {
             ctx.imageSmoothingEnabled = false;
             ctx.drawImage(this.img, this.pos.x, this.pos.y, 360*3, 20*3);
         } else if (this.type === "enemy") {
-            this.img.src = "https://github.com/isacben/isacben.github.io/blob/master/al-pastor/img/".concat("cactus", ".png");
+            this.img.src = "./img/".concat("cactus", ".png");
             ctx.imageSmoothingEnabled = false;
             ctx.drawImage(this.img, this.pos.x, this.pos.y, 14*3, 20*3);
         }
