@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="http://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Al Pastor 1</title>
+    <style>
+        #container {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          font-family: 'Press Start 2P', sans-serif;
+          font-weight: 400;
+        }
+        #canvas {
+          border: 0px solid black;
+          width: 300px;
+          height: 300px;
+          border-radius: 5%;
+          position: absolute;
+        }
+        h1 {
+          text-align: center;
+          font-family:monospace;
+          color: rgb(68, 135, 77);
+        }
+        #score {
+          position: absolute;
+          margin-top: 10px;
+          margin-right: 15px;
+          width: 300px;
+          text-align: right;
+          font-size: 20px;
+          color: #bd6868;
+        }
+        #cover {
+          position: absolute;
+          margin-top: 45px;
+          font-size: 25px;
+          color: #bd6868;
+        }
+        #game-over{
+          position: absolute;
+          margin-top: 95px;
+          font-size: 20px;
+          color: #421e42;
+          display: none;
+          font-weight: 400;
+        }
+        #start {
+          position: absolute;
+          margin-top: 135px;
+        }
+        #start button{
+          font-size: 20px;
+          text-decoration: underline;
+          color: #637c8f;
+          background: none;
+          padding: 5px;
+          border: 0;
+          font-family: 'Press Start 2P', sans-serif;
+          font-weight: 700;
+        }
+        #start button:hover {
+          text-decoration: none;
+        }
+        #description {
+          width: 300px;
+          font-size: 16px;
+          margin-top: 315px;
+          font-family: 'Courier New', Courier, monospace;
+        }
+      </style>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvas"></canvas>
+        <div id="score">0</div>
+        <div id="cover">Al Pastor</div>
+        <div id="game-over">Game Over</div>
+        <div id="start">
+          <button id="startbutton">>Start</button>
+        </div>
+        <div id="description">
+          <p>My name is Alberto Pastor, but I go by Al. Help me eat as many taco as I can! But be careful with the cacti! &#127797;</p>
+          <p>Hit 'w', 'space' or 'up' to jump.</p>
+          <p>For mobile, click anywere on the screen to jump.</p>
+          <hr>
+          <p>2022, Isaac Benitez. <a href="https://github.com/isacben/al-pastor-1">GitHub</a></p>
+        </div>
+    </div>
+    <script src="src/index.js" type="module"></script>
+</body>
+</html>
