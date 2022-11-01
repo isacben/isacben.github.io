@@ -26,8 +26,8 @@ export default class Game {
         this.cover.src = "./img/cover.png";
         document.addEventListener("keydown", (ev) => this.handleKey(ev, true));
         document.addEventListener("keyup", (ev) => this.handleKey(ev, false));
-        document.addEventListener("mousedown", (ev) => this.handleMouse(true));
-        document.addEventListener("mouseup", (ev) => this.handleMouse(false));
+        document.addEventListener("touchstart", (ev) => this.handleMouse(true));
+        document.addEventListener("touchend", (ev) => this.handleMouse(false));
     }
 
     tick(){
