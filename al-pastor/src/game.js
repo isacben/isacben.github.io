@@ -23,7 +23,7 @@ export default class Game {
     constructor() {
         this.canvas.width = 300;
         this.canvas.height = 300;
-        this.cover.src = "./img/cover.png";
+        this.cover.src = "/img/cover.png";
         document.addEventListener("keydown", (ev) => this.handleKey(ev, true));
         document.addEventListener("keyup", (ev) => this.handleKey(ev, false));
         document.addEventListener("mousedown", (ev) => this.handleMouse(true));
