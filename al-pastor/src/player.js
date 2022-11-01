@@ -17,7 +17,7 @@ export default class Player extends Entity {
 
     constructor() {
         super("player", {x: 20, y: 250 - 60}, {w: 48, h: 60}, "#9a4f50");
-        this.img.src = "/img/player.png";
+        this.img.src = "./img/player.png";
     }
 
     jump() {
