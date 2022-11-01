@@ -18,7 +18,7 @@ export default class Entity {
             ctx.imageSmoothingEnabled = false;
             ctx.drawImage(this.img, this.pos.x, this.pos.y, 10*3, 8*3);
         } else if (this.type === "ground") {
-            this.img.src = "./../img/".concat(this.type, ".png");
+            this.img.src = "../img/".concat(this.type, ".png");
             ctx.imageSmoothingEnabled = false;
             ctx.drawImage(this.img, this.pos.x, this.pos.y, 360*3, 20*3);
         } else if (this.type === "enemy") {
