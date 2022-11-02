@@ -52,7 +52,7 @@ export default class Game {
         this.things.forEach(thing => {
             if (thing.type === "taco") {
                 thing.move(2);
-            } else if (thing.type === "enemy") {
+            } else if (thing.type === "cactus") {
                 thing.move(3);
             }
             thing.draw(this.ctx);
@@ -83,7 +83,7 @@ export default class Game {
         if (this.enemyTimer > this.enemyInterval) {
             this.things.push(
                 new Entity(
-                    "enemy",
+                    "cactus",
                     {x: 300, y:(250 - 60)},
                     {w: 14*3, h: 20*3},   
                     "#6e6962"
