@@ -29,39 +29,39 @@ export default class Player extends Entity {
         }
     }
 
-    tick(entities) {
+    tick(ground, cacti, tacos) {
         this.frameTimer++;
-        this.pos.y -= this.vel.y;
-
+        this.pos.y -= Math.floor(this.vel.y);
         this.grounded = false;
 
-        entities.forEach((entity, index, object) => {
-            if (entity.type === "ground") {
-                if (this.checkCollision(entity)) {
+        if (this.checkCollision(ground)) {
                     /* this.pos.y -= 
                         this.vel.y > 0 
                         ? this.bounds.top - entity.bounds.bottom 
                         : this.bounds.bottom - entity.bounds.top; */
-                    this.pos.y -= this.bounds.bottom - entity.bounds.top;
-                    this.vel.y = 0;
-                    this.grounded = this.pos.y < entity.getPosition.y;
-                }
-                this.vel.y -= this.gravity;
-            } else if (entity.type === "taco") {
-                if (this.checkCollision(entity) && !this.hit) {
-                    object.splice(index, 1);
-                    zzfx(...[1.02,0,1300,.01,.04,.18,1,1.07,,,-50,.02,,,,,,.58,.02]);
-                    this.score++;
-                }
-            } else if (entity.type === "cactus" && !this.hit) {
-                if (this.checkCollision(entity)) {
+            this.pos.y -= this.bounds.bottom - ground.bounds.top;
+            this.vel.y = 0;
+            this.grounded = this.pos.y < ground.getPosition.y;
+        }
+        this.vel.y -= this.gravity;
+
+        cacti.forEach((cactus) => {
+            if (cactus.type === "cactus" && !this.hit) {
+                if (this.checkCollision(cactus)) {
                     this.vel.y = 0;
                     this.vel.y += 5;
-                    //object.splice(index, 1);
                     this.hit = true;
                     this.status = "lost";
                     zzfx(...[1.15,0,79,.03,.01,.08,2,2.14,,-0.6,,,,.8,,.4,,.65,.03,.12]);
                 }
+            }
+        });
+
+        tacos.forEach((taco) => {
+            if (this.checkCollision(taco) && !this.hit) {
+                zzfx(...[1.02,0,1300,.01,.04,.18,1,1.07,,,-50,.02,,,,,,.58,.02]);
+                taco.setPositionX(-70);
+                this.score++;
             }
         });
 
@@ -70,7 +70,6 @@ export default class Player extends Entity {
         }
 
         if (this.vel.y > 0) {
-            //console.log("UP");
         } else if (this.vel.y < 0 && !this.grounded && !this.hit && this.isStarted) {
             this.status = "jumping";
         }
@@ -83,10 +82,10 @@ export default class Player extends Entity {
                 ctx.drawImage(this.img, 0, 0, 60, 60, this.pos.x, this.pos.y, 60, 60);
                 break;
             case "lost":
-                ctx.drawImage(this.img, 60*8, 0, 60, 60, this.pos.x, this.pos.y, 60, 60);
+                ctx.drawImage(this.img, 480, 0, 60, 60, this.pos.x, this.pos.y, 60, 60); //60*8
                 break;
             case "jumping":
-                ctx.drawImage(this.img, 60*7, 0, 60, 60, this.pos.x, this.pos.y, 60, 60);
+                ctx.drawImage(this.img, 420, 0, 60, 60, this.pos.x, this.pos.y, 60, 60); 60*7
                 break;
             case "running":
                 if (this.frameTimer % this.frameTrigger === 0) {
@@ -95,16 +94,12 @@ export default class Player extends Entity {
                     } else {
                         this.frame += 1;
                     }
-                    //console.log(this.frameTimer);
                 }
-                ctx.drawImage(this.img, this.frame*60, 0, 60, 60, this.pos.x, this.pos.y, 60, 60);
+                const frame = this.frame*60;
+                ctx.drawImage(this.img, frame, 0, 60, 60, this.pos.x, this.pos.y, 60, 60);
                 break;
         }
     }
-
-    //dropPlayer() {
-        //this.vel.y += 5;
-    //}
 
     get getScore() {
         return this.score;

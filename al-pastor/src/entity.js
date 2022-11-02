@@ -2,37 +2,18 @@ export default class Entity {
     type = "";
     pos = {x: 0, y: 0};
     size = {w: 0, h: 0};
-    color = "";
     img = new Image();
 
-    constructor(type, pos, size, color) {
+    constructor(type, pos, size) {
         this.type = type;
         this.pos = pos;
         this.size = size;
-        this.color = color;
         this.loadImage();
     }
 
     draw(ctx) {
         ctx.imageSmoothingEnabled = false;
         ctx.drawImage(this.img, this.pos.x, this.pos.y);
-        /*if (this.type === "taco") {
-            this.img.src = "./img/".concat(this.type, ".png");
-            ctx.imageSmoothingEnabled = false;
-            ctx.drawImage(this.img, this.pos.x, this.pos.y);
-        } else if (this.type === "ground") {
-            this.img.src = "./img/".concat(this.type, ".png");
-            ctx.imageSmoothingEnabled = false;
-            ctx.drawImage(this.img, this.pos.x, this.pos.y);
-        } else if (this.type === "enemy") {
-            this.img.src = "./img/".concat("cactus", ".png");
-            ctx.imageSmoothingEnabled = false;
-            ctx.drawImage(this.img, this.pos.x, this.pos.y);
-        }
-        else {
-            ctx.fillStyle = this.color;
-            ctx.fillRect(this.pos.x, this.pos.y, this.size.w, this.size.h);
-        }*/
     }
 
     loadImage() {
@@ -40,11 +21,18 @@ export default class Entity {
     }
 
     move(vel) {
-        this.pos.x += -vel;
-        if (this.pos.x === -720 && this.type === "ground") {
-            //console.log(this.pos.x);
-            this.pos.x = 0;
-        }
+            this.pos.x += -vel;
+            if (this.pos.x === -720 && this.type === "ground") {
+                this.pos.x = 0;
+            }
+    }
+
+    setPositionX(posX) {
+        this.pos.x = posX;
+    }
+
+    setTimer(timer) {
+        this.timer = timer;
     }
 
     get getPosition() {
