@@ -10,10 +10,13 @@ export default class Entity {
         this.pos = pos;
         this.size = size;
         this.color = color;
+        this.loadImage();
     }
 
     draw(ctx) {
-        if (this.type === "taco") {
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(this.img, this.pos.x, this.pos.y);
+        /*if (this.type === "taco") {
             this.img.src = "./img/".concat(this.type, ".png");
             ctx.imageSmoothingEnabled = false;
             ctx.drawImage(this.img, this.pos.x, this.pos.y);
@@ -29,7 +32,11 @@ export default class Entity {
         else {
             ctx.fillStyle = this.color;
             ctx.fillRect(this.pos.x, this.pos.y, this.size.w, this.size.h);
-        }
+        }*/
+    }
+
+    loadImage() {
+        this.img.src = "./img/".concat(this.type, ".png");
     }
 
     move(vel) {

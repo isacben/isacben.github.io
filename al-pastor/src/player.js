@@ -53,7 +53,7 @@ export default class Player extends Entity {
                     zzfx(...[1.02,0,1300,.01,.04,.18,1,1.07,,,-50,.02,,,,,,.58,.02]);
                     this.score++;
                 }
-            } else if (entity.type === "enemy" && !this.hit) {
+            } else if (entity.type === "cactus" && !this.hit) {
                 if (this.checkCollision(entity)) {
                     this.vel.y = 0;
                     this.vel.y += 5;
