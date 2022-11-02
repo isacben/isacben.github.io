@@ -80,13 +80,13 @@ export default class Player extends Entity {
         ctx.imageSmoothingEnabled = false;
         switch (this.status) {
             case "idle":
-                ctx.drawImage(this.img, 0, 0, 20, 20, this.pos.x, this.pos.y, 20*3, 20*3);
+                ctx.drawImage(this.img, 0, 0, 20, 20, this.pos.x, this.pos.y);
                 break;
             case "lost":
-                ctx.drawImage(this.img, 20*8, 0, 20, 20, this.pos.x, this.pos.y, 20*3, 20*3);
+                ctx.drawImage(this.img, 20*8, 0, 20, 20, this.pos.x, this.pos.y);
                 break;
             case "jumping":
-                ctx.drawImage(this.img, 20*7, 0, 20, 20, this.pos.x, this.pos.y, 20*3, 20*3);
+                ctx.drawImage(this.img, 20*7, 0, 20, 20, this.pos.x, this.pos.y);
                 break;
             case "running":
                 if (this.frameTimer % this.frameTrigger === 0) {
@@ -97,7 +97,7 @@ export default class Player extends Entity {
                     }
                     //console.log(this.frameTimer);
                 }
-                ctx.drawImage(this.img, this.frame*20, 0, 20, 20, this.pos.x, this.pos.y, 20*3, 20*3);
+                ctx.drawImage(this.img, this.frame*20, 0, 20, 20, this.pos.x, this.pos.y);
                 break;
         }
     }
