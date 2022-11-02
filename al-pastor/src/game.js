@@ -6,7 +6,6 @@ import Player from "./player.js";
 export default class Game {
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
-    cover = new Image();
     player = new Player();
     jump = false;
     started = false;
@@ -23,7 +22,6 @@ export default class Game {
     constructor() {
         this.canvas.width = 300;
         this.canvas.height = 300;
-        this.cover.src = "./img/cover.png";
         document.addEventListener("keydown", (ev) => this.handleKey(ev, true));
         document.addEventListener("keyup", (ev) => this.handleKey(ev, false));
         document.addEventListener("touchstart", (ev) => this.handleMouse(true));
