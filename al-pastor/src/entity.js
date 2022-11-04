@@ -2,37 +2,27 @@ export default class Entity {
     type = "";
     pos = {x: 0, y: 0};
     size = {w: 0, h: 0};
-    img = new Image();
 
-    constructor(type, pos, size) {
+    constructor(type, pos, size, img) {
         this.type = type;
         this.pos = pos;
         this.size = size;
-        this.loadImage();
+        this.img = img;
     }
 
     draw(ctx) {
-        ctx.imageSmoothingEnabled = false;
         ctx.drawImage(this.img, this.pos.x, this.pos.y);
-    }
-
-    loadImage() {
-        this.img.src = "./img/".concat(this.type, ".png");
     }
 
     move(vel) {
             this.pos.x += -vel;
-            if (this.pos.x === -720 && this.type === "ground") {
-                this.pos.x = 0;
+            if (this.pos.x === -540 && this.type === "ground") {
+                this.pos.x = 0
             }
     }
 
     setPositionX(posX) {
         this.pos.x = posX;
-    }
-
-    setTimer(timer) {
-        this.timer = timer;
     }
 
     get getPosition() {
