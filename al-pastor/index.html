@@ -76,11 +76,20 @@
           margin-top: 315px;
           font-family: 'Courier New', Courier, monospace;
         }
+        #player, #cactus, #taco, #ground{
+          display: none;
+        }
       </style>
 </head>
 <body>
     <div id="container">
         <canvas id="canvas"></canvas>
+
+        <img id="player" src="./img/player.png">
+        <img id="cactus" src="./img/cactus.png">
+        <img id="taco" src="./img/taco.png">
+        <img id="ground" src="./img/ground.png">
+
         <div id="score">0</div>
         <div id="cover">Al Pastor</div>
         <div id="game-over">Game Over</div>
@@ -95,6 +104,7 @@
           <p>2022, Isaac Benitez. <a href="https://github.com/isacben/al-pastor-1">GitHub</a></p>
         </div>
     </div>
+
     <script src="src/index.js" type="module"></script>
 </body>
 </html>
