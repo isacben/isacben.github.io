@@ -37,7 +37,6 @@ export default class Game {
     }
 
     tick(){
-
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
         if (this.started) {
@@ -45,16 +44,17 @@ export default class Game {
             this.showTacos(this.ctx);
             this.ground.move(4);
             this.showScore(this.player.getScore);
-        } 
 
-        if (this.jump & this.started) {
-            this.player.jump();
-        }
+            if (this.jump) {
+                this.player.jump();
+            }
+        } 
 
         this.player.tick(this.ground, this.cacti, this.tacos);
         this.player.animate(this.ctx);
         this.ground.draw(this.ctx);
 
+        // game over
         if (this.player.getHit) {
             this.started = false;
             document.getElementById("game-over").style = "display:block";
@@ -94,17 +94,9 @@ export default class Game {
     }
 
     handleKey(ev, isDown) {
-        if (!this.player.getHit) {
-            switch (ev.key) {
-                default:
-                    return;
-                case "ArrowUp":
-                case "w":
-                case " ":
-                    this.jump = isDown;
-                    break;
-            }
-        }
+        if (ev.key === "ArrowUp" || ev.key === "w" || ev.key === " ") {
+            this.jump = isDown;
+        }    
     }
 
     handleMouse(isDown) {

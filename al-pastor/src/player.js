@@ -11,7 +11,7 @@ export default class Player extends Entity {
     isStarted = false;
     status = "idle";
     frameTimer = 0;
-    frameTrigger = 4;
+    frameTrigger = 5;
     frame = 1;
 
     constructor() {
@@ -20,7 +20,7 @@ export default class Player extends Entity {
     }
 
     jump() {
-        if (this.grounded & !this.hit) {
+        if (this.grounded) {
             this.vel.y += this.jumpForce;
             this.frameTimer = 0;
             this.status = "jumping";
@@ -52,9 +52,9 @@ export default class Player extends Entity {
 
         tacos.forEach((taco) => {
             if (this.checkCollision(taco) && !this.hit) {
-                zzfx(...[1.02,0,1300,.01,.04,.18,1,1.07,,,-50,.02,,,,,,.58,.02]);
                 taco.setPositionX(-70);
                 this.score++;
+                zzfx(...[1.02,0,1300,.01,.04,.18,1,1.07,,,-50,.02,,,,,,.58,.02]);
             }
         });
 
@@ -102,5 +102,12 @@ export default class Player extends Entity {
         this.hit = false;
         this.isStarted = true;
         this.frameTimer = 0;
+        if (ZZFX.x !== null) {
+            ZZFX.x.resume();
+        }
+        else {
+            ZZFX.x = new (window.AudioContext || webkitAudioContext);
+        }
+        
     }
 }
