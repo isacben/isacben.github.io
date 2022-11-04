@@ -59,7 +59,7 @@ export const ZZFX =
     sampleRate: 44100,
     
     // create shared audio context
-    x: new (window.AudioContext || webkitAudioContext),
+    x: null,
 
     // play a sound from zzfx paramerters
     play: function(...parameters)
