@@ -28,13 +28,13 @@ url: "https://isacben.github.io" # the base hostname & protocol for your site, e
 github_username:  isacben
 linkedin_username: isacben
 
+minima:
+  skin: dark
+
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
-
-minima:
-  skin: dark
 
 # Exclude from processing.
 # The following items will not be processed, by default.
