@@ -23,7 +23,7 @@ Key ideas:
 
 This is an example of the structure of the package source code:
 
-{% highlight %}
+```
 package_folder (also the git repository)/
 ├── LICENSE
 ├── pyproject.toml
@@ -33,25 +33,25 @@ package_folder (also the git repository)/
 │     └── module_file.py
 |     └── other_required_file.py
 └── tests/
-{% endhighlight %}
+```
 
 My example does not have the tests folder and files yet, but I will add them.
 
 In terms of the imports, the `module_file.py` file, which is the main script of the package, imports the `other_required_file.py` like this:
 
-{% highlight python %}
+```python
 import other_required_file
-{% endhighlight %}
+```
 
 And to use the package, the developer imports the package like this:
 
-{% highlight python %}
+```python
 import package_name
-{% endhighlight %}
+```
 
 In this example, the `package_name` in the import above is what you define in the `pyproject.py` file. For example:
 
-{% highlight toml %}
+```toml
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
@@ -73,4 +73,4 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://github.com/isacben/pycli"
-{% endhighlight %}
+```
