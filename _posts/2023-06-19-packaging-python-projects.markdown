@@ -13,7 +13,7 @@ So, I switch to the new methods described here: https://packaging.python.org/en/
 
 For a very simple example of how the project files can be organized, as well as an example of the `pyproject.py`, check the package I was creating:
 
-https://github.com/isacben/pycli - a package to create CLI applications with sub-commands easily
+[https://github.com/isacben/pycli](https://github.com/isacben/pycli) - a package to create CLI applications with sub-commands easily
 
 Key ideas:
 
