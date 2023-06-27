@@ -2,7 +2,7 @@
 layout: post
 title:  "TIL: How to package a python project?"
 date:   2023-06-19 11:30:00 -0700
-categories: linux
+categories: python
 ---
 I was trying to generate the distribution files for a python package using `setuptools` with a `setup.py` file. But that was creating two issues:
 
