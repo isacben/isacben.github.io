@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "TIL: How to use the jq command to filter json data"
-date:   2023-06-27 18:07:22 -0700
+date:   2023-06-27 09:00:00:wq -0700
 categories: linux
 ---
 

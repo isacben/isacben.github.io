@@ -9,11 +9,11 @@ I was trying to generate the distribution files for a python package using `setu
 * A deprecation warning, because I was using the legacy 'setup.py install' method.
 * To use the package, one had to do `from mypackage import mypackage` instead of just `import mypackage`.
 
-So, I switch to the new methods described here: https://packaging.python.org/en/latest/tutorials/packaging-projects/
+So, I switch to the new methods described here: [https://packaging.python.org/en/latest/tutorials/packaging-projects](https://packaging.python.org/en/latest/tutorials/packaging-projects)
 
 For a very simple example of how the project files can be organized, as well as an example of the `pyproject.py`, check the package I was creating:
 
-[https://github.com/isacben/pycli](https://github.com/isacben/pycli) - a package to create CLI applications with sub-commands easily
+[https://github.com/isacben/clidir](https://github.com/isacben/clidir) - a package to create CLI applications with sub-commands easily
 
 Key ideas:
 
