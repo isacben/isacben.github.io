@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "TIL: How to install PICO-8 on Raspberry Pi"
-date:   2023-07-30 09:00:00 -0700
+date:   2023-07-30 00:00:00 -0000
 categories: raspberry-pi
 ---
 
