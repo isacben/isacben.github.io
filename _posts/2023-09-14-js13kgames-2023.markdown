@@ -1,0 +1,144 @@
+---
+layout: post
+title:  "JS13KGAMES 2023 Post Mortem"
+date:   2023-09-14 00:00:00 -0000
+categories: javascript, gamedev
+---
+
+## Introduction
+
+This is a post mortem document for my participation in the [JS13KGAMES](https://js13kgames.com/) game jam 2023 edition:
+
+* Title: Wanted
+* My entry: https://js13kgames.com/entries/wanted
+* The code: https://github.com/isacben/wanted
+
+![](../img/2023-09-14-01.gif)
+
+I have been developing games consistently only for a year. And I first need to say that it was when I discovered JS13KGAMES and saw the entry from 2022 that I found motivation to try game development again!
+
+I was convinced that I was able to program anything, except a game. The only game I finished was Pong back in 2003, when I was at collage. The, after several failed attempts through out the years, to make games (at least 15 years), I gave up.
+
+When I learnt about JS13KGAMES, I thought that writing a game in JavaScript would be a great technical challenge. So, I tried again to make games and I put more effort this time. I "trained" for a year, and here I am.
+
+I learnt a lot during this month!
+
+## Goals vs. Outcomes
+
+My goals for this game were the following:
+
+1. Develop a retro game that pretty much looks like a [PICO-8](https://en.wikipedia.org/wiki/PICO-8) game.
+2. Also like in PICO-8, I wanted to program the game with just Functions! I wanted to avoid Classes, as an experiment.
+3. I wanted to use TypeScript to learn about it.
+4. For this project, I wanted to focus on "polish" and developing a game that felt complete, even though there was not that much game play (few levels, for example).
+5. I wanted to be a tile based game, because I had not worked with tiles much.
+6. I decided to use an engine. I chose [kontra.js](https://straker.github.io/kontra/) and ended up liking it quite a bit!
+
+The outcomes were pretty close to what I wanted. 
+
+The only thing that I could not achieve was using TypeScript. At the middle of the project, I had to migrate to just JavaScript, because I was struggling to come up with a small size deliverable. I had almost no game, but my deliverable was +17kb.
+
+After loosing 3 days trying to make the project work with TypeScript, I decided to port the code I had already written to JavaScript.
+
+This is the repository of the version with TypeScript: 
+
+https://github.com/isacben/robin
+
+## Scope and Deliverables
+
+Pretty much everything you see in the game, was planned for the project.
+
+However, I did have to remove a lot of thing from the scope due to the time constraints, rather that the size constraints. Who knows if I would have been able to fit all those feature had I had more time, though.
+
+Some notable things that I had to de-scope were:
+
+1. A camera shake (I really wanted this!)
+2. I wanted the game to have levels rather than be a single room game where you have to get a high score.
+3. I wanted different kind of enemies.
+4. I wanted a fight with a King.
+5. I wanted an animation showing Robin Hood handing money to the poor.
+
+I still think the game is pretty fun, and pretty complete.
+
+## Challenges and Obstacles
+
+As I said before, I used to think that my brain was just not wired to develop video games.
+
+However, at this point I feel I can finally make video games! I now understand the whole idea of how games are implemented.
+
+So, for me personally, the most challenging part was to shrink the deliverables. 
+
+I had never done code minifying. I didn't know how to do it, nor the resources available, nor the considerations. As explained above, I lost 3 full days on it.
+
+Fortunately, the JS13KGAMES team has a ton of resources by now, and they (and also the participants of the jam) are very helpful.
+
+So, I ended up with a process to develop, and then shrink the code and validate I was within the size constraints of the competition (13kb, if I didn't mentioned it before).
+
+With regards to the usage of just functions (and a void Classes), I did like it. But at the same time it was challenging to deal with such a long file. I do think that we tend to create Classes for everything, even for the entities that will have only one instance of the Class.
+
+For example, the Arrows are already objects (of type Sprite):
+
+```javascript
+let arrow = Sprite({
+    x: x,
+    y: Math.floor((y+12)/32) * 32, // clamp the arrow to a row
+    dx: 6 * dir,
+    scaleX: dir,
+    scaleY: 1,
+    width: 32,
+    height: 32,
+    anchor: {x: 0, y: 0},
+    animations: spriteSheet.animations,
+    ttl: 70,
+});
+```
+
+Once we create that arrow, we just have to add it to the array of arrows:
+
+```javascript
+arrows.push(arrow);
+```
+
+Do we really need a Class for that?
+
+## Successes and Achievements
+
+The notable achievements for me are:
+
+* I think the game has good polish elements:
+    * The game can be paused
+    * The music can be turned on and off independently from the sound effects
+    * The sound effect can be turned on and off independently from the music
+    * You can enable and disable music and sound effects while you are playing (you don't have to leave the game)
+    * You can review what the controls are while you are playing as well
+    * There is good feedback for the player through out the game (for example, the guards flash when you hit them and the screen gets red when you get hit)
+* There is some juice:
+    * the arrows are big
+    * you can shoot many arrows, and that feels good!
+    * you can get lots of money, and that feels good!
+* The size of the pixel art is consistent through out the game
+* The font is also consistent with the size of the pixel art
+* The player controller provides friction and acceleration, and the character movement feels fluid
+* The music
+
+## Lessons Learned
+
+1. To be able to use TypeScript, I would have had to be ready with the knowledge, rather than trying to lear during the game jam.
+2. It was important to learn about shrinking the code, and have a development/delivery process ready before the game jam.
+3. You will need fonts and music: learn how to work with those elements considering the size constrains (and get your tools) before the game jam, to not waste time learning during the development.
+
+## Conclusion and Gratitude
+
+I loved this game jam. It was different from other competitions I have joined in the sense that this one is very technical!
+
+I have the feeling (but I am not sure) that the people who join this game jam are more software developers than game developers. A lot of folks are just super smart!
+
+Just the way you have to deal with the size constrains, the shrinking of the code, the optimization challenges, packaging the game, etc., adds to the complexity to the already difficult task of developing a game.
+
+That's probably why this competition has fewer participants.
+
+Thank you to the JS13KGAMES team for putting this together!
+
+They provide tons of resources (more than you can read during the game jam), and are very responsive and helpful!
+
+Isaac Benitez
