@@ -2,7 +2,7 @@
 layout: post
 title:  "JS13KGAMES 2023 Post Mortem"
 date:   2023-09-14 00:00:00 -0000
-categories: javascript, gamedev
+categories: javascript
 ---
 
 ## Introduction
@@ -13,7 +13,7 @@ This is a post mortem document for my participation in the [JS13KGAMES](https://
 * My entry: https://js13kgames.com/entries/wanted
 * The code: https://github.com/isacben/wanted
 
-![](assets/img/2023-09-14-01.gif)
+![](/assets/img/2023-09-14-01.gif)
 
 I have been developing games consistently only for a year. And I first need to say that it was when I discovered JS13KGAMES and saw the entry from 2022 that I found motivation to try game development again!
 
