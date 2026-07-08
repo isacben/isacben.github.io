@@ -36,17 +36,20 @@
       {
         "smart_arrives": "8:54 AM",
         "departs": "9:25 AM",
-        "arrives": "10:00 AM"
+        "arrives": "10:00 AM",
+        "notes": "Giants game on 7/8, expect crowds!"
       },
       {
         "smart_arrives": "9:26 AM",
         "departs": "10:10 AM",
-        "arrives": "10:45 AM"
+        "arrives": "10:45 AM",
+        "notes": "Giants game on 7/8, expect crowds!"
       },
       {
         "smart_arrives": "11:34 AM",
         "departs": "11:50 AM",
-        "arrives": "12:25 PM"
+        "arrives": "12:25 PM",
+        "notes": "Giants game on 7/8, expect crowds!"
       },
       {
         "smart_arrives": "12:38 PM",
@@ -143,12 +146,14 @@
       {
         "departs": "3:50 PM",
         "arrives": "4:25 PM",
-        "smart_departs": "4:40 PM"
+        "smart_departs": "4:40 PM",
+        "notes": "Giants game on 7/8, expect crowds!"
       },
       {
         "departs": "4:30 PM",
         "arrives": "5:05 PM",
-        "smart_departs": "5:44 PM"
+        "smart_departs": "5:44 PM",
+        "notes": "Giants game on 7/8, expect crowds!"
       },
       {
         "departs": "5:25 PM",
