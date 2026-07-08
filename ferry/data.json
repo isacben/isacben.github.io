@@ -175,6 +175,85 @@
         "arrives": "8:30 PM",
         "smart_departs": "8:56 PM"
       }
+    ],
+    "inbound_weekend": [
+      {
+        "smart_arrives": "8:32 AM",
+        "departs": "9:00 AM",
+        "arrives": "9:55 AM"
+      },
+      {
+        "smart_arrives": "9:43 AM",
+        "departs": "10:00 AM",
+        "arrives": "10:35 AM"
+      },
+      {
+        "smart_arrives": "10:47 AM",
+        "departs": "11:30 AM",
+        "arrives": "12:05 PM"
+      },
+      {
+        "smart_arrives": "12:55 PM",
+        "departs": "1:30 PM",
+        "arrives": "2:05 PM"
+      },
+      {
+        "smart_arrives": "1:59 PM",
+        "departs": "3:00 PM",
+        "arrives": "3:35 PM"
+      },
+      {
+        "smart_arrives": "4:07 PM",
+        "departs": "4:30 PM",
+        "arrives": "5:05 PM"
+      },
+      {
+        "smart_arrives": "5:11 PM",
+        "departs": "6:00 PM",
+        "arrives": "6:35 PM"
+      }
+    ],
+    "outbound_weekend": [
+      {
+        "departs": "10:45 AM",
+        "arrives": "11:20 AM",
+        "smart_departs": "12:09 PM"
+      },
+      {
+        "departs": "12:15 PM",
+        "arrives": "12:50 PM",
+        "smart_departs": "1:13 PM"
+      },
+      {
+        "departs": "2:15 PM",
+        "arrives": "2:50 PM",
+        "smart_departs": "3:21 PM"
+      },
+      {
+        "departs": "3:45 PM",
+        "arrives": "4:20 PM",
+        "smart_departs": "5:29 PM"
+      },
+      {
+        "departs": "5:15 PM",
+        "arrives": "5:50 PM",
+        "smart_departs": "6:33 PM"
+      },
+      {
+        "departs": "6:00 PM",
+        "arrives": "6:55 PM",
+        "smart_departs": "8:09 PM"
+      },
+      {
+        "departs": "6:45 PM",
+        "arrives": "7:20 PM",
+        "smart_departs": "8:09 PM"
+      },
+      {
+        "departs": "7:50 PM",
+        "arrives": "8:45 PM",
+        "smart_departs": "9:53 PM"
+      }
     ]
   },
   {
@@ -244,6 +323,50 @@
         "departs": "7:15 PM | GATE C",
         "arrives": "7:45 PM"
       }
+    ],
+    "inbound_weekend": [
+      {
+        "departs": "11:30 AM",
+        "arrives": "12:00 PM"
+      },
+      {
+        "departs": "1:25 PM",
+        "arrives": "1:55 PM"
+      },
+      {
+        "departs": "3:10 PM",
+        "arrives": "3:40 PM"
+      },
+      {
+        "departs": "5:00 PM",
+        "arrives": "5:30 PM"
+      },
+      {
+        "departs": "6:55 PM",
+        "arrives": "7:25 PM"
+      }
+    ],
+    "outbound_weekend": [
+      {
+        "departs": "10:15 AM | GATE C",
+        "arrives": "11:15 AM"
+      },
+      {
+        "departs": "12:35 PM | GATE C",
+        "arrives": "1:05 PM"
+      },
+      {
+        "departs": "2:15 PM | GATE B",
+        "arrives": "2:45 PM"
+      },
+      {
+        "departs": "4:00 PM | GATE B",
+        "arrives": "4:30 PM"
+      },
+      {
+        "departs": "5:50 PM | GATE B",
+        "arrives": "6:20 PM"
+      }
     ]
   },
   {
@@ -308,50 +431,110 @@
         "departs": "7:15 PM | GATE C",
         "arrives": "8:05 PM"
       }
+    ],
+    "inbound_weekend": [
+      {
+        "departs": "11:50 AM",
+        "arrives": "12:20 PM"
+      },
+      {
+        "departs": "12:55 PM",
+        "arrives": "1:25 PM"
+      },
+      {
+        "departs": "2:45 PM",
+        "arrives": "3:50 PM"
+      },
+      {
+        "departs": "5:15 PM",
+        "arrives": "5:45 PM"
+      }
+    ],
+    "outbound_weekend": [
+      {
+        "departs": "12:15 PM | GATE B",
+        "arrives": "12:45 PM"
+      },
+      {
+        "departs": "2:05 PM | GATE B",
+        "arrives": "2:35 PM"
+      },
+      {
+        "departs": "4:05 PM | GATE B",
+        "arrives": "5:05 PM"
+      }
     ]
   },
   {
-      "route": "Angel Island",
-      "alerts": [
-        "7/1/26 BUS & FERRY FARE INCREASE",
-        "GGT and GGF accept contactless bank cards in addition to Clipper card",
-        "2/4 GIANTS FERRY TICKETS NOW AVAILABLE!"
-      ],
-      "inbound": [
-        {
-          "departs": "9:25 AM",
-          "arrives": "9:55 AM"
-        },
-        {
-          "departs": "10:55 AM",
-          "arrives": "11:25 AM"
-        },
-        {
-          "departs": "1:55 PM",
-          "arrives": "2:25 PM"
-        },
-        {
-          "departs": "3:50 PM",
-          "arrives": "4:40 PM"
-        }
-      ],
-      "outbound": [
-        {
-          "departs": "10:10 AM",
-          "arrives": "10:40 AM"
-        },
-        {
-          "departs": "11:35 AM",
-          "arrives": "12:20 PM"
-        },
-        {
-          "departs": "2:35 PM",
-          "arrives": "3:05 PM"
-        },
-        {
-          "departs": "4:55 PM",
-          "arrives": "5:25 PM"
-        }
-      ]
-    }
+    "route": "Angel Island",
+    "alerts": [
+      "7/1/26 BUS & FERRY FARE INCREASE",
+      "GGT and GGF accept contactless bank cards in addition to Clipper card",
+      "2/4 GIANTS FERRY TICKETS NOW AVAILABLE!"
+    ],
+    "inbound": [
+      {
+        "departs": "9:25 AM",
+        "arrives": "9:55 AM"
+      },
+      {
+        "departs": "10:55 AM",
+        "arrives": "11:25 AM"
+      },
+      {
+        "departs": "1:55 PM",
+        "arrives": "2:25 PM"
+      },
+      {
+        "departs": "3:50 PM",
+        "arrives": "4:40 PM"
+      }
+    ],
+    "outbound": [
+      {
+        "departs": "10:10 AM",
+        "arrives": "10:40 AM"
+      },
+      {
+        "departs": "11:35 AM",
+        "arrives": "12:20 PM"
+      },
+      {
+        "departs": "2:35 PM",
+        "arrives": "3:05 PM"
+      },
+      {
+        "departs": "4:55 PM",
+        "arrives": "5:25 PM"
+      }
+    ],
+    "inbound_weekend": [
+      {
+        "departs": "10:55 AM",
+        "arrives": "12:00 PM"
+      },
+      {
+        "departs": "3:20 PM",
+        "arrives": "3:50 PM"
+      },
+      {
+        "departs": "4:50 PM",
+        "arrives": "5:45 PM"
+      }
+    ],
+    "outbound_weekend": [
+      {
+        "departs": "10:15 AM | GATE B",
+        "arrives": "10:45 AM"
+      },
+      {
+        "departs": "2:05 PM | GATE B",
+        "arrives": "3:00 PM"
+      },
+      {
+        "departs": "4:05 PM | GATE B",
+        "arrives": "4:35 PM"
+      }
+    ]
+  }
 ]
